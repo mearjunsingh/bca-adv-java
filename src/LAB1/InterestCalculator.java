@@ -51,5 +51,4 @@ class InterestCalculatorImplementation {
         resultLabel.setBounds(33, 250, 100, 30);
         result.setBounds(167, 250, 200, 30);
     }
-
 }

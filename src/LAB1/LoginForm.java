@@ -39,5 +39,4 @@ class LoginFormImplementation {
         password.setBounds(167, 100, 200, 30);
         button.setBounds(167, 150, 100, 30);
     }
-
 }
