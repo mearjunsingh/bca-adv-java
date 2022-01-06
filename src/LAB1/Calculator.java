@@ -23,7 +23,7 @@ class CalculatorImplementation {
         button = new JButton("Add");
         resultLabel = new JLabel("Result:");
         result = new JLabel("...");
-        
+
         frame.add(number1Label);
         frame.add(number1);
         frame.add(number2Label);

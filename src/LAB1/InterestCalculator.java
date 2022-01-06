@@ -13,7 +13,7 @@ class InterestCalculatorImplementation {
     JLabel principalLabel, rateLabel, timeLabel, resultLabel, result;
     JTextField principal, rate, time;
     JButton button;
-    
+
     InterestCalculatorImplementation() {
         frame = new JFrame("Simple Interest Calculator");
         principalLabel = new JLabel("Principal:");
@@ -25,7 +25,7 @@ class InterestCalculatorImplementation {
         button = new JButton("Calculate");
         resultLabel = new JLabel("Interest:");
         result = new JLabel("...");
-        
+
         frame.add(principalLabel);
         frame.add(principal);
         frame.add(rateLabel);

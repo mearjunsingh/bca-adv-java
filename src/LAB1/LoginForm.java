@@ -13,7 +13,7 @@ class LoginFormImplementation {
     JLabel usernameLabel, passwordLabel;
     JTextField username, password;
     JButton button;
-    
+
     LoginFormImplementation() {
         frame = new JFrame("Login Form");
         usernameLabel = new JLabel("Username:");
@@ -21,7 +21,7 @@ class LoginFormImplementation {
         passwordLabel = new JLabel("Password:");
         password = new JPasswordField(20);
         button = new JButton("Login");
-        
+
         frame.add(usernameLabel);
         frame.add(username);
         frame.add(passwordLabel);

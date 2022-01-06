@@ -7,7 +7,6 @@ import javax.swing.*;
 public class BackgroundChanger implements ActionListener {
     JFrame frame;
     JButton red, green, blue;
-    CalculatorEventHandler handler;
 
     BackgroundChanger() {
         frame = new JFrame("Background Changer");
@@ -15,7 +14,6 @@ public class BackgroundChanger implements ActionListener {
         green = new JButton("Green");
         blue = new JButton("Blue");
 
-        
         frame.add(red);
         frame.add(green);
         frame.add(blue);
@@ -33,9 +31,8 @@ public class BackgroundChanger implements ActionListener {
         green.addActionListener(this);
         blue.addActionListener(this);
     }
-    
-    public void actionPerformed(ActionEvent event) {  
 
+    public void actionPerformed(ActionEvent event) {
         if (event.getActionCommand() == "Red") {
             frame.getContentPane().setBackground(Color.RED);
         } else if (event.getActionCommand() == "Green") {
@@ -43,11 +40,9 @@ public class BackgroundChanger implements ActionListener {
         } else if (event.getActionCommand() == "Blue") {
             frame.getContentPane().setBackground(Color.BLUE);
         }
-        
     }
 
     public static void main(String[] args) {
         new BackgroundChanger();
     }
 }
-
