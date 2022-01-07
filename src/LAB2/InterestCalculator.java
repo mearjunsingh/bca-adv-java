@@ -16,7 +16,7 @@ class InterestImplementation implements ActionListener {
     JButton SIbtn, CIbtn;
 
     InterestImplementation() {
-        frame = new JFrame("Simple Interest Calculator");
+        frame = new JFrame("Interest Calculator");
         principleLabel = new JLabel("Principle: ");
         timeLabel = new JLabel("Time: ");
         rateLabel = new JLabel("Rate: ");
