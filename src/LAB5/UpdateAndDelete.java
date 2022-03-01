@@ -3,7 +3,7 @@ package LAB5;
 import java.util.Scanner;
 import java.sql.*;
 
-public class InsertAndRead {
+public class UpdateAndDelete {
     public static void main(String[] args) throws Exception {
 
         Scanner inp = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class InsertAndRead {
         Statement stmt = con.createStatement();
 
         while (true) {
-            System.out.println("What do you want to do?\n1. Insert\n2. Read\n3. Quit");
+            System.out.println("What do you want to do?\n1. Update\n2. Delete\n3. Quit");
             int choice = inp.nextInt();
             inp.nextLine(); // to read enter key
 
@@ -35,9 +35,12 @@ public class InsertAndRead {
 
             if (choice == 1) {
 
-                System.out.println("Enter Roll: ");
+                System.out.println("Enter Roll for Operation: ");
                 int roll = inp.nextInt();
                 inp.nextLine(); // to read enter key
+
+                System.out.println("-------------------------------");
+
                 System.out.println("Enter Name: ");
                 String name = inp.nextLine();
                 System.out.println("Enter Address: ");
@@ -45,39 +48,43 @@ public class InsertAndRead {
                 System.out.println("Enter College: ");
                 String college = inp.nextLine();
 
-                String sql = "INSERT INTO public.\"Student\"(\"Roll\", \"Name\", \"Address\", \"College\") VALUES ("
-                        + roll + ", '" + name + "', '" + address + "', '" + college + "');";
+                String sql = "UPDATE public.\"Student\" SET \"Name\"='" + name + "', \"Address\"='" + address
+                        + "', \"College\"='" + college + "' WHERE \"Roll\"=" + roll + ";";
 
                 boolean status = stmt.execute(sql);
 
                 System.out.println("-------------------------------");
 
                 if (!status) {
-                    System.out.println("Record Inserted Successfully.");
+                    System.out.println("Record Updated Successfully.");
                 } else {
-                    System.out.println("Insertion Error.");
+                    System.out.println("Update Error.");
                 }
 
                 System.out.println("-------------------------------");
 
             } else if (choice == 2) {
 
-                ResultSet rs = stmt.executeQuery("SELECT * FROM public.\"Student\";");
+                System.out.println("Enter Roll for Operation: ");
+                int roll = inp.nextInt();
+                inp.nextLine(); // to read enter key
 
-                System.out.println("Roll\tName\tAddress\tCollege");
-                
                 System.out.println("-------------------------------");
 
-                while (rs.next()) {
-                    System.out.println(rs.getInt("Roll") + "\t" + rs.getString("Name") + "\t"
-                            + rs.getString("Address") + "\t" + rs.getString("College"));
+                String sql = "DELETE FROM public.\"Student\" WHERE \"Roll\" = " + roll + ";";
+
+                boolean status = stmt.execute(sql);
+
+                if (!status) {
+                    System.out.println("Record Deleted Successfully.");
+                } else {
+                    System.out.println("Deletion Error.");
                 }
 
                 System.out.println("-------------------------------");
 
             } else if (choice == 3) {
 
-                System.out.println("Exiting Application...");
                 break;
 
             } else {
@@ -85,9 +92,8 @@ public class InsertAndRead {
                 continue;
 
             }
-        }
 
-        System.out.println("-------------------------------");
+        }
 
         inp.close();
 
